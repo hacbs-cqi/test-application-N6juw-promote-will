@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-stacks-nodejs-react
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-stacks-nodejs-react
+    app.kubernetes.io/part-of: test-application
+  name: devfile-stacks-nodejs-react
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: devfile-stacks-nodejs-react
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: devfile-stacks-nodejs-react
+    spec:
+      containers:
+      - image: quay.io/tkdchen/devfile-stacks-nodejs-react
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
